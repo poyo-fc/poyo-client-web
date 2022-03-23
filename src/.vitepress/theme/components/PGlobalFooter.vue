@@ -1,8 +1,8 @@
 <template>
   <PMount class="PGlobalFooter" tag="footer">
     <p class="content">
-      &copy; {{ new Date().getFullYear() }} POYO AND SQUARE ENIX CO, LTD.<br>
-      FINAL FANTASY XIV | FAN MADE WEBSITE<br>
+      &copy; {{ new Date().getFullYear() }} POYO AND <PLink class="link" href="https://www.square-enix.com/">SQUARE ENIX CO, LTD.</PLink><br>
+      <PLink class="link" href="https://jp.finalfantasyxiv.com/">FINAL FANTASY XIV</PLink> | FAN MADE WEBSITE<br>
       FREE COMPANY AT UNICORN IN ELEMENTAL<br>
       THIS SITE IS DEPLOYED BY <PLink class="link" href="https://www.netlify.com/">NETLIFY</PLink>
     </p>
