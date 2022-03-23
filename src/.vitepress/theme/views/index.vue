@@ -103,7 +103,7 @@
 .neutral.comma {
   display: none;
 
-  @media (min-width: 512px) {
+  @media (min-width: 592px) {
     display: inline-block;
   }
 }
