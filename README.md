@@ -26,7 +26,7 @@ We're really excited that you are interested in contributing to the project. Bef
 
 ### Code style guide
 
-We follow official [Vue Style Guide](https://v3.vuejs.org/style-guide/). But always remember to follow the "Golden Rule" below.
+We follow official [Vue Style Guide](https://vuejs.org/style-guide/). But always remember to follow the "Golden Rule" below.
 
 > Every line of code should appear to be written by a single person, no matter the number of contributors.
 > &mdash; <cite>@mdo</cite>
