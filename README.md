@@ -16,6 +16,10 @@ $ yarn serve
 
 Now you can access the application at http://localhost:3000.
 
+## Deployment
+
+The site is deployed by [Netlify](https://www.netlify.com/) whenever the code gets pushed to the `main` branch. If you don't want the code to go production, remember to create a PR first. Netlify offers a preview mode when creating PR, so you can always test out your in progress work.
+
 ## Contribution
 
 We're really excited that you are interested in contributing to the project. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
