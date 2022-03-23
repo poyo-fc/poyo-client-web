@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "scripts": {
+    "serve": "vitepress dev src",
+    "build": "vitepress build src",
+    "start": "vitepress serve src --port 3000",
+    "clean": "rm -rf src/.vitepress/dist",
+    "type": "yarn clean && vue-tsc --noEmit",
+    "lint": "yarn clean && eslint --fix \"src/**/*.{js,ts,vue}\"",
+    "lint:fail": "yarn clean && eslint \"src/**/*.{js,ts,vue}\"",
+    "test": "yarn type && yarn lint",
+    "test:fail": "yarn type && yarn lint:fail"
+  },
+  "dependencies": {
+    "@babel/types": "^7.17.0",
+    "normalize.css": "^8.0.1",
+    "postcss": "^8.4.12",
+    "postcss-nested": "^5.0.6",
+    "typescript": "^4.6.2",
+    "vitepress": "^0.22.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "eslint": "^8.11.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "vue-tsc": "^0.33.7"
+  }
+}
