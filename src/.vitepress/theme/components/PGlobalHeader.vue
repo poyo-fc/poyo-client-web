@@ -10,7 +10,13 @@
 
 <style scoped lang="postcss">
 .PGlobalHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-header);
   padding: 9px 8px;
+  -webkit-backdrop-filter: saturate(60%) blur(24px);
+  backdrop-filter: saturate(60%) blur(24px);
 
   @media (min-width: 768px) {
     padding: 12px 16px;

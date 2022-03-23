@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import HomeCover from '../components/home/HomeCover.vue'
+</script>
+
 <template>
   <PPage class="Home">
     <PMount class="title" tag="h1">
@@ -12,12 +16,23 @@
         <span class="lead-block">ELEMENTAL UNICORN</span>
       </p>
     </PMount>
+
+    <PMount class="slogan">
+      <p class="slogan-text">
+        <span class="nowrap">困難を克服し、</span><wbr><span class="nowrap">絶望を打ち壊し、</span><wbr><span class="nowrap">未踏の地を踏み締める。</span><br>
+        <span class="nowrap">ぼくたちは、</span><wbr><span class="nowrap">ハードコアの血を流す。</span>
+      </p>
+    </PMount>
+
+    <div class="cover">
+      <HomeCover />
+    </div>
   </PPage>
 </template>
 
 <style scoped lang="postcss">
 .Home {
-  padding: 16px 0 128px;
+  padding: 16px 0 64px;
   border-bottom: 1px solid var(--c-divider-light);
 
   @media (min-width: 592px) {
@@ -114,7 +129,7 @@
   text-align: center;
 
   @media (min-width: 768px) {
-    margin: 16px auto 0;
+    margin: 12px auto 0;
     width: 560px;
   }
 }
@@ -184,6 +199,46 @@
   @media (min-width: 592px) {
     display: block;
     margin: 0 8px;
+  }
+}
+
+.slogan {
+  padding: 16px 32px 0;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 500;
+  color: var(--c-text-2);
+
+  @media (min-width: 592px) {
+    padding-top: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 28px;
+    line-height: 32px;
+    font-size: 20px;
+  }
+}
+
+.slogan.mount-active {
+  transition: opacity 1s 1.75s, filter 1s 1.75s;
+}
+
+.slogan.mount-from {
+  opacity: 0;
+  filter: blur(16px);
+}
+
+.cover {
+  padding: 32px 0 0;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    padding-top: 36px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 36px;
   }
 }
 </style>
