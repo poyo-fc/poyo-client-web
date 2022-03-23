@@ -10,7 +10,9 @@
 
     "paths": {
       "/@theme/*": [".vitepress/theme/*"]
-    }
+    },
+
+    "types": ["@types/node"],
   },
 
   "include": [

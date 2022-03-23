@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useGA } from './composables/GA'
 import PGlobalHeader from './components/PGlobalHeader.vue'
 import PGlobalFooter from './components/PGlobalFooter.vue'
+
+useGA()
 </script>
 
 <template>
