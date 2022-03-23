@@ -5,7 +5,7 @@
     "build": "vitepress build src",
     "start": "vitepress serve src --port 3000",
     "clean": "rm -rf src/.vitepress/dist",
-    "type": "yarn clean && vue-tsc --noEmit",
+    "type": "yarn clean && vue-tsc --noEmit --skipLibCheck",
     "lint": "yarn clean && eslint --fix \"src/**/*.{js,ts,vue}\"",
     "lint:fail": "yarn clean && eslint \"src/**/*.{js,ts,vue}\"",
     "test": "yarn type && yarn lint",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@babel/types": "^7.17.0",
+    "@types/node": "^17.0.22",
     "normalize.css": "^8.0.1",
     "postcss": "^8.4.12",
     "postcss-nested": "^5.0.6",
