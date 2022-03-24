@@ -9,7 +9,7 @@
     "resolveJsonModule": true,
 
     "paths": {
-      "/@theme/*": [".vitepress/theme/*"]
+      "/@theme/*": ["src/.vitepress/theme/*"]
     },
 
     "types": ["@types/node"],

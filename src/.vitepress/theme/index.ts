@@ -1,6 +1,7 @@
 import 'normalize.css'
 import './styles/variables.css'
 import './styles/base.css'
+import './styles/utilities.css'
 
 import PLink from './components/PLink.vue'
 import PMount from './components/PMount.vue'
