@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { load } from '/@theme/support/Image'
 import IconChevronLeft from '../icons/IconChevronLeft.vue'
 import IconChevronRight from '../icons/IconChevronRight.vue'
 
@@ -14,6 +15,8 @@ const current = ref(0)
 const animation = ref(true)
 
 onMounted(() => {
+  load(images)
+
   setTimeout(() => { animation.value = false }, 3000)
 })
 
