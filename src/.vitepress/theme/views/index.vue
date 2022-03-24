@@ -149,7 +149,7 @@ import HomeCover from '../components/home/HomeCover.vue'
 
 .lead.mount-from .lead-line {
   opacity: 0;
-  transform: scaleX(.8);
+  transform: scaleX(0);
 }
 
 .lead-line {
