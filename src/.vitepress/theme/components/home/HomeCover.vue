@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useData } from 'vitepress'
 import { load } from '/@theme/support/Image'
 import IconChevronLeft from '../icons/IconChevronLeft.vue'
 import IconChevronRight from '../icons/IconChevronRight.vue'
 
-const images = [
-  '/img/cover/poyo-tozan-001.jpg',
-  '/img/cover/poyo-reishiki-001.jpg',
-  '/img/cover/poyo-tozan-002.jpg'
-]
+const { theme } = useData()
+
+const images = theme.value.home.covers
 
 const max = images.length - 1
 const current = ref(0)
