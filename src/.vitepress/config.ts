@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import home from './config/home'
 
 export default {
   lang: 'ja-JP',
@@ -13,5 +14,9 @@ export default {
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap' }],
     ['script', { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-MVCFQQQM8W' }],
     ['script', {}, fs.readFileSync(path.resolve(__dirname, './theme/inlines/ga.js'), 'utf-8')]
-  ]
+  ],
+
+  themeConfig: {
+    home
+  }
 }

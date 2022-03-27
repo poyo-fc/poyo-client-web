@@ -1,43 +1,33 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useData } from 'vitepress'
 import { load } from '/@theme/support/Image'
 import IconChevronLeft from '../icons/IconChevronLeft.vue'
 import IconChevronRight from '../icons/IconChevronRight.vue'
-import Glob from 'glob'
 
-const imagePattern = "/img/cover/*.{jpg,png}"
+const { theme } = useData()
 
+const images = theme.value.home.covers
+
+const max = images.length - 1
 const current = ref(0)
 const animation = ref(true)
 
 onMounted(() => {
-  load(getImageList(imagePattern))
+  load(images)
 
   setTimeout(() => { animation.value = false }, 3000)
 })
 
-function getImageList(imgPattern: string) {
-  var ret: string[] = []
-  Glob(imgPattern, function(err, images){
-    if(err) {
-      return
-    }
-
-    ret = images
-  })
-
-  return ret
-}
-
 function prev() {
   transition(() => {
-    current.value = current.value <= 0 ? getImageList(imagePattern).length : current.value - 1
+    current.value = current.value <= 0 ? max : current.value - 1
   })
 }
 
 function next() {
   transition(() => {
-    current.value = current.value >= getImageList(imagePattern).length ? 0 : current.value + 1
+    current.value = current.value >= max ? 0 : current.value + 1
   })
 }
 
@@ -54,8 +44,8 @@ function transition(fn: () => void) {
   <PMount class="HomeCover">
     <div class="container">
       <transition name="fade">
-        <div class="holder" :key="getImageList(imagePattern)[current]">
-          <img class="img" :class="{ zoom: animation }" :src="getImageList(imagePattern)[current]">
+        <div class="holder" :key="images[current]">
+          <img class="img" :class="{ zoom: animation }" :src="images[current]">
         </div>
       </transition>
     </div>
