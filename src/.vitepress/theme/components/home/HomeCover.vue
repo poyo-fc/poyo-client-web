@@ -54,8 +54,8 @@ function transition(fn: () => void) {
   <PMount class="HomeCover">
     <div class="container">
       <transition name="fade">
-        <div class="holder" :key="images[current]">
-          <img class="img" :class="{ zoom: animation }" :src="images[current]">
+        <div class="holder" :key="getImageList(imagePattern)[current]">
+          <img class="img" :class="{ zoom: animation }" :src="getImageList(imagePattern)[current]">
         </div>
       </transition>
     </div>
