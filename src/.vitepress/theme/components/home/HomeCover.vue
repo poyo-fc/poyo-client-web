@@ -3,32 +3,41 @@ import { ref, onMounted } from 'vue'
 import { load } from '/@theme/support/Image'
 import IconChevronLeft from '../icons/IconChevronLeft.vue'
 import IconChevronRight from '../icons/IconChevronRight.vue'
+import Glob from 'glob'
 
-const images = [
-  '/img/cover/poyo-tozan-001.jpg',
-  '/img/cover/poyo-reishiki-001.jpg',
-  '/img/cover/poyo-tozan-002.jpg'
-]
+const imagePattern = "/img/cover/*.{jpg,png}"
 
-const max = images.length - 1
 const current = ref(0)
 const animation = ref(true)
 
 onMounted(() => {
-  load(images)
+  load(getImageList(imagePattern))
 
   setTimeout(() => { animation.value = false }, 3000)
 })
 
+function getImageList(imgPattern: string) {
+  var ret: string[] = []
+  Glob(imgPattern, function(err, images){
+    if(err) {
+      return
+    }
+
+    ret = images
+  })
+
+  return ret
+}
+
 function prev() {
   transition(() => {
-    current.value = current.value <= 0 ? max : current.value - 1
+    current.value = current.value <= 0 ? getImageList(imagePattern).length : current.value - 1
   })
 }
 
 function next() {
   transition(() => {
-    current.value = current.value >= max ? 0 : current.value + 1
+    current.value = current.value >= getImageList(imagePattern).length ? 0 : current.value + 1
   })
 }
 
