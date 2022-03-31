@@ -41,7 +41,7 @@ function transition(fn: () => void) {
 </script>
 
 <template>
-  <PMount class="HomeCover">
+  <PMount class="HomeHeroCover">
     <div class="container">
       <transition name="fade">
         <div class="holder" :key="images[current]">
@@ -62,20 +62,20 @@ function transition(fn: () => void) {
 </template>
 
 <style scoped lang="postcss">
-.HomeCover {
+.HomeHeroCover {
   @media (min-width: 1024px) {
     padding: 0 64px;
   }
 }
 
-.HomeCover.mount-active .container { transition: opacity 1s 2.25s; }
-.HomeCover.mount-active .control   { transition: opacity .75s 2.5s, transform .75s 2.5s; }
+.HomeHeroCover.mount-active .container { transition: opacity 1s 2.25s; }
+.HomeHeroCover.mount-active .control   { transition: opacity .75s 2.5s, transform .75s 2.5s; }
 
-.HomeCover.mount-from .container {
+.HomeHeroCover.mount-from .container {
   opacity: 0;
 }
 
-.HomeCover.mount-from .control {
+.HomeHeroCover.mount-from .control {
   opacity: 0;
   transform: translateY(4px);
 }
