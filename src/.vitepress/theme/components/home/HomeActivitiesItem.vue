@@ -124,6 +124,9 @@ const [typeEn, typeJa] = props.activity.getTypeValue()
 .title {
   font-size: 20px;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .lead {
@@ -131,6 +134,9 @@ const [typeEn, typeJa] = props.activity.getTypeValue()
   font-size: 16px;
   font-weight: 700;
   color: var(--c-text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .duration {
