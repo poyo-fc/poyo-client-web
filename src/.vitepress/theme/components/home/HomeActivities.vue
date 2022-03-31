@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import Activity from '/@theme/models/Activity'
+import { useActivityCollection } from '/@theme/composables/Activity'
 import HomeActivitiesItem from './HomeActivitiesItem.vue'
 
-const { theme } = useData()
-
-const activities = theme.value.activities.data.map((data: any) => {
-  return new Activity(data)
-})
+const { data } = useActivityCollection()
 </script>
 
 <template>
   <PMount tag="section" class="HomeActivities">
-    <div class="header">
-      <div class="line" />
-      <h2 class="title">Latest activities</h2>
-    </div>
+    <div class="wrapper">
+      <div class="header">
+        <div class="line" />
+        <h2 class="title">Latest activities</h2>
+      </div>
 
-    <div class="items">
-      <div v-for="(activity, index) in activities" :key="index" class="item">
-        <HomeActivitiesItem :activity="activity" />
+      <div class="containers">
+        <div class="items">
+          <div v-for="(activity, index) in data" :key="index" class="item">
+            <HomeActivitiesItem :activity="activity" />
+          </div>
+        </div>
       </div>
     </div>
   </PMount>
@@ -29,10 +28,23 @@ const activities = theme.value.activities.data.map((data: any) => {
 .HomeActivities {
   padding: 0 0 128px;
   border-bottom: 1px solid var(--c-divider-light);
+
+  @media (min-width: 768px) {
+    padding: 32px 0 128px;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 960px;
 }
 
 .header {
   padding: 0 24px;
+
+  @media (min-width: 592px) {
+    padding: 0 32px;
+  }
 }
 
 .line {
@@ -43,8 +55,48 @@ const activities = theme.value.activities.data.map((data: any) => {
 
 .title {
   padding-top: 12px;
+  letter-spacing: 1px;
   line-height: 32px;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 700;
+
+  @media (min-width: 592px) {
+    padding-top: 20px;
+    font-size: 32px;
+  }
+}
+
+.containers {
+  padding-top: 24px;
+  overflow: hidden;
+
+  @media (min-width: 592px) {
+    padding: 32px 32px 0;
+  }
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: -8px;
+
+  @media (min-width: 592px) {
+    margin: -12px;
+  }
+}
+
+.item {
+  display: flex;
+  padding: 8px;
+  width: 100%;
+
+  @media (min-width: 592px) {
+    padding: 12px;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 }
 </style>

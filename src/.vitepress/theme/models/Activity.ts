@@ -1,3 +1,5 @@
+import day, { Dayjs } from 'dayjs'
+import { ValueOf } from '/@theme/types/Utils'
 import members from '/@theme/data/members'
 import Model from './Model'
 import Member from './Member'
@@ -14,7 +16,14 @@ export interface ActivityData {
 }
 
 export type ActivityStatus = 'completed' | 'in-progress' | 'failed'
+
 export type ActivityType = 'ultimate' | 'savage' | 'clibming'
+
+export const ActivityTypes = {
+  ultimate: ['ULTIMATE', '絶'],
+  savage: ['SAVAGE', '零式'],
+  clibming: ['CLIBMING', '登山']
+} as const
 
 export default class Activity extends Model {
   title: string
@@ -39,6 +48,14 @@ export default class Activity extends Model {
     this.members = this.resolveMembers(data.members)
   }
 
+  get startAsDay(): Dayjs {
+    return day(this.start)
+  }
+
+  get endAsDay(): Dayjs | null {
+    return this.end ? day(this.end) : null
+  }
+
   protected resolveMembers(ids: string[]): Member[] {
     return ids.map((id) => {
       const member = members[id]
@@ -49,5 +66,15 @@ export default class Activity extends Model {
 
       return new Member(member)
     })
+  }
+
+  getTypeValue(): ValueOf<typeof ActivityTypes> {
+    const value = ActivityTypes[this.type]
+
+    if (!value) {
+      throw new Error(`[poyo] Could not find activity type: "${this.type}".`)
+    }
+
+    return value
   }
 }
