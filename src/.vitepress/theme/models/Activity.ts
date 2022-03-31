@@ -17,6 +17,12 @@ export interface ActivityData {
 
 export type ActivityStatus = 'completed' | 'in-progress' | 'failed'
 
+export const ActivityStatuses = {
+  completed: 'COMPLETED',
+  'in-progress': 'IN PROGRESS',
+  failed: 'FAILED'
+} as const
+
 export type ActivityType = 'ultimate' | 'savage' | 'clibming'
 
 export const ActivityTypes = {
@@ -66,6 +72,16 @@ export default class Activity extends Model {
 
       return new Member(member)
     })
+  }
+
+  getStatusValue(): ValueOf<typeof ActivityStatuses> {
+    const value = ActivityStatuses[this.status]
+
+    if (!value) {
+      throw new Error(`[poyo] Could not find activity status: "${this.status}".`)
+    }
+
+    return value
   }
 
   getTypeValue(): ValueOf<typeof ActivityTypes> {

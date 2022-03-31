@@ -17,6 +17,10 @@ const [typeEn, typeJa] = props.activity.getTypeValue()
         <span class="type-divider" />
         <span class="type-text">{{ typeJa }}</span>
       </p>
+
+      <p class="status" :class="[activity.status]">
+        {{ activity.getStatusValue() }}
+      </p>
     </div>
 
     <div class="content">
@@ -54,6 +58,8 @@ const [typeEn, typeJa] = props.activity.getTypeValue()
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
   padding: 24px 24px 0;
 
   @media (min-width: 1024px) {
@@ -79,6 +85,32 @@ const [typeEn, typeJa] = props.activity.getTypeValue()
   width: 1px;
   height: 16px;
   background-color: var(--c-text-3);
+}
+
+.status {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 3px 8px 0;
+  letter-spacing: 1px;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: 500;
+  transform: translateY(-2px);
+}
+
+.status.completed {
+  border-color: var(--c-brand);
+  color: var(--c-brand);
+}
+
+.status.in-progress {
+  border-color: var(--c-green);
+  color: var(--c-green);
+}
+
+.status.failed {
+  border-color: var(--c-text-2);
+  color: var(--c-text-2);
 }
 
 .content {
