@@ -29,22 +29,36 @@ const { data } = useActivityCollection()
   padding: 0 0 128px;
   border-bottom: 1px solid var(--c-divider-light);
 
+  @media (min-width: 592px) {
+    padding: 0 32px 128px;
+  }
+
   @media (min-width: 768px) {
-    padding: 32px 0 128px;
+    padding: 32px 32px 128px;
   }
 }
 
-.wrapper {
-  margin: 0 auto;
-  max-width: 960px;
+.HomeActivities.mount-active {
+  transition: opacity .75s, transform .75s;
+  transition-delay: 1.5s;
+}
+
+.HomeActivities.mount-from {
+  opacity: 0;
+  transform: translateY(8px);
 }
 
 .header {
   padding: 0 24px;
 
   @media (min-width: 592px) {
-    padding: 0 32px;
+    padding: 0;
   }
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 960px;
 }
 
 .line {
@@ -71,7 +85,7 @@ const { data } = useActivityCollection()
   overflow: hidden;
 
   @media (min-width: 592px) {
-    padding: 32px 32px 0;
+    padding-top: 32px;
   }
 }
 

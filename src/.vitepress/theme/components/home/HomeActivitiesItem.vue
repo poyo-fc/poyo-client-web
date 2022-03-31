@@ -42,10 +42,13 @@ const [typeEn, typeJa] = props.activity.getTypeValue()
 
 <style scoped lang="postcss">
 .HomeActivitiesItem {
+  border-top: 1px solid var(--c-divider-light);
+  border-bottom: 1px solid var(--c-divider-light);
   width: 100%;
   background-color: var(--c-black-deep);
 
   @media (min-width: 592px) {
+    border: 1px solid var(--c-divider-light);
     border-radius: 8px;
   }
 }
@@ -138,7 +141,7 @@ const [typeEn, typeJa] = props.activity.getTypeValue()
 
 .member::after {
   display: inline-block;
-  margin: 0 12px;
+  margin: 0 8px;
   content: "/";
   color: var(--c-text-3);
 }
