@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import home from './config/home'
+import activities from './config/activities'
 
 export default {
   lang: 'ja-JP',
@@ -17,6 +18,7 @@ export default {
   ],
 
   themeConfig: {
-    home
+    home,
+    activities
   }
 }

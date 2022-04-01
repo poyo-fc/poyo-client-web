@@ -37,7 +37,6 @@
   @media (min-width: 768px) {
     line-height: 24px;
     font-size: 14px;
-    font-weight: 400;
   }
 }
 
