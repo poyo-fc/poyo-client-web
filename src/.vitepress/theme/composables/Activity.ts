@@ -5,12 +5,22 @@ export interface ActivityCollection {
   data: Activity[]
 }
 
-export function useActivityCollection(): ActivityCollection {
+export interface UseActivityCollectionOptions {
+  take?: number
+}
+
+export function useActivityCollection(
+  options: UseActivityCollectionOptions = {}
+): ActivityCollection {
   const { theme } = useData()
 
-  const data = theme.value.activities.data.map((data: any) => {
-    return new Activity(data)
-  })
+  let data = theme.value.activities.data
+
+  if (options.take !== undefined) {
+    data = data.slice(0, options.take)
+  }
+
+  data = data.map((data: any) => new Activity(data))
 
   return {
     data

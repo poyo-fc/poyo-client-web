@@ -2,7 +2,7 @@
 import { useActivityCollection } from '/@theme/composables/Activity'
 import HomeActivitiesItem from './HomeActivitiesItem.vue'
 
-const { data } = useActivityCollection()
+const { data } = useActivityCollection({ take: 6 })
 </script>
 
 <template>
