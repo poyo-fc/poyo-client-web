@@ -28,6 +28,7 @@ export type ActivityType = 'ultimate' | 'savage' | 'clibming'
 export const ActivityTypes = {
   ultimate: ['ULTIMATE', '絶'],
   savage: ['SAVAGE', '零式'],
+  dd: ['DEEP DUNGEON', 'DD'],
   clibming: ['CLIBMING', '登山']
 } as const
 
